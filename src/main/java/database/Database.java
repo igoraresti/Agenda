@@ -11,6 +11,7 @@ public class Database implements AgendaOperation{
 	
 	public Database(){
 		listaContactos.add(new Contacto("Igor", "Aresti"));
+		listaContactos.add(new Contacto("Jon Ander", "Gonzalez"));
 	}
 
 	public void addContact(Contacto contact) {
