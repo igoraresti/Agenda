@@ -6,13 +6,12 @@ import java.util.ListIterator;
 
 import modelo.Contacto;
 import database.Database;
+import database.DatabaseSQL;
 
 
 public class App
 {
-	private static Database database = new Database();
-	
-	
+	private static DatabaseSQL database = new DatabaseSQL();
 	
 	private static void menu(int option){
 		int contactPosition;

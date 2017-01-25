@@ -8,6 +8,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
 import database.Database;
+import database.DatabaseSQL;
 import modelo.Contacto;
 
 
@@ -18,7 +19,7 @@ public class IndexBean implements Serializable {
 
 	private static final long serialVersionUID = -4901741514584007341L;	
 	private List<Contacto> usersList;
-	private Database database = new Database();
+	private DatabaseSQL database = new DatabaseSQL();
 
 	@PostConstruct
 	public void init() {
