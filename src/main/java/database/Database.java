@@ -3,45 +3,45 @@ package database;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo.Contacto;
+import modelo.Actor;
 
-public class Database implements AgendaOperation{
+public class Database implements DatabaseOperation{
 	
-	List<Contacto> listaContactos = new ArrayList<Contacto>();
+	List<Actor> listaActores = new ArrayList<Actor>();
 	
 	public Database(){
-		listaContactos.add(new Contacto("Igor", "Aresti"));
-		listaContactos.add(new Contacto("Jon Ander", "Gonzalez"));
+		listaActores.add(new Actor("Igor", "Aresti"));
+		listaActores.add(new Actor("Jon Ander", "Gonzalez"));
 	}
 
-	public void addContact(Contacto contact) {
-		if(listaContactos.size() >= 20)
+	public void addActor(Actor contact) {
+		if(listaActores.size() >= 20)
 			System.out.println("Agenda completa");
 		else
-			listaContactos.add(contact);
+			listaActores.add(contact);
 		
 	}
 
-	public void deleteContact(int contactPosition){
+	public void deleteActor(int actorPosition){
 		try {
-			listaContactos.remove(contactPosition);
+			listaActores.remove(actorPosition);
 		} catch (IndexOutOfBoundsException e) {
-			System.out.print("Esa posicion no tiene contacto");
+			System.out.print("Esa posicion no tiene actor");
 		}
 	}
 
-	public Contacto getContact(int contactPosition) {
-		Contacto contact = null;
+	public Actor getActor(int actorPosition) {
+		Actor actor = null;
 		try{
-			contact = listaContactos.get(contactPosition);
+			actor = listaActores.get(actorPosition);
 		}catch (IndexOutOfBoundsException e) {
-			System.out.print("Esa posicion no tiene contacto");
+			System.out.print("Esa posicion no tiene actor");
 		}
-		return contact;
+		return actor;
 	}
 
-	public List<Contacto> getAllContacts() {
-		return listaContactos;
+	public List<Actor> getAllActors() {
+		return listaActores;
 	}
 	
 

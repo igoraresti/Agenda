@@ -7,18 +7,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo.Contacto;
+import modelo.Actor;
 
-public class DatabaseSQL {
+public class DatabaseSQL implements DatabaseOperation{
 
-private List<Contacto> listaContactos = new ArrayList<Contacto>();
+private List<Actor> listaActores = new ArrayList<Actor>();
 private MySQLConexion msc;
 	
 	public DatabaseSQL(){
 		msc = new MySQLConexion();
 	}
 
-	public void addContact(Contacto contact) {
+	public void addActor(Actor contact) {
 		Connection con=msc.getConexion();
 		// create a Statement from the connection
 		Statement statement;
@@ -36,19 +36,18 @@ private MySQLConexion msc;
 		
 	}
 
-	public void deleteContact(int contactPosition){
+	public void deleteActor(int contactPosition){
 		
 	}
 
-	public Contacto getContact(int contactPosition) {
-		Connection con=msc.getConexion();
-		// create a Statement from the connection
+	public Actor getActor(int contactPosition) {
+	
 		 
 		 return null;
 		 
 	}
 
-	public List<Contacto> getAllContacts() {
+	public List<Actor> getAllActors() {
 		
 		Connection con=msc.getConexion();
 		// create a Statement from the connection
@@ -56,17 +55,17 @@ private MySQLConexion msc;
 		
 		 try {
 			Statement stmt= con.createStatement();
-			ResultSet rs= stmt.executeQuery("SELECT * FROM CONTACTO");
+			ResultSet rs= stmt.executeQuery("SELECT * FROM Actor");
 			
 			while (rs.next()){
-				Contacto contact=new Contacto(rs.getString("nombre"),rs.getString("apellido"),rs.getInt("telefono"), rs.getString("sexo").charAt(0));
-				listaContactos.add(contact);
+				Actor contact=new Actor(rs.getString("first_name"),rs.getString("last_name"));
+				listaActores.add(contact);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 return listaContactos;
+		 return listaActores;
 		
 	}
 }

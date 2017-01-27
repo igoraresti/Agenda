@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:c="http://java.sun.com/jsf/core">
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"  
+	>
 <head>
 <title>Index Page</title>
 <meta charset="utf-8" />
@@ -13,35 +15,35 @@
 <link rel="stylesheet" href="assets/css/main.css" />
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+<SCRIPT type="text/javascript">
+	function toggleTable() {
+		var lTable = document.getElementById("actorsTable");
+		lTable.style.display = (lTable.style.display == "table") ? "none"
+				: "table";
+	}
+</SCRIPT>
 </head>
 <body>
 
 	<!-- Wrapper -->
 	<div id="wrapper"></div>
 
-		<!-- Header -->
-		<header id="header"> </header>
-
-	<h:dataTable value="#{indexBean.contactList}" var="user">
+	<!-- Header -->
+	<header id="header"> </header>
+	
+	<a id="button" onclick="toggleTable();" href="#">Show/Hide</a>
+	<h:dataTable value="#{indexBean.actorList}" var="actor"
+		id="actorsTable">
 
 		<h:column>
 			<f:facet name="header">Nombre</f:facet>
-		#{user.nombre}
+		#{actor.firstName}
 	</h:column>
 
 		<h:column>
 			<f:facet name="header">Apellido</f:facet>
-		#{user.apellido}
-	</h:column>
-	
-	<h:column>
-			<f:facet name="header">Telefono</f:facet>
-		#{user.telefono}
-	</h:column>
-
-		<h:column>
-			<f:facet name="header">Sexo</f:facet>
-		#{user.sexo}
+		#{actor.lastName}
 	</h:column>
 
 	</h:dataTable>

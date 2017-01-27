@@ -11,7 +11,7 @@ public class MySQLConexion {
 
 	private Connection con= null;
 	final String url="jdbc:mysql://localhost:3306/";
-	final String agenda="agenda";
+	final String agenda="sakila";
 	final String driver="com.mysql.jdbc.Driver";
 	final String username="root";
 	final String password="admin";
