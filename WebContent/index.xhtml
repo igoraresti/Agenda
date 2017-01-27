@@ -4,8 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"  
-	>
+	xmlns:p="http://primefaces.org/ui">
 <head>
 <title>Index Page</title>
 <meta charset="utf-8" />
@@ -31,7 +30,17 @@
 
 	<!-- Header -->
 	<header id="header"> </header>
-	
+
+	<h:form>
+					Nombre: <h:inputText value="#{indexBean.first_name_filter}"></h:inputText>
+					Apellido: <h:inputText value="#{indexBean.last_name_filter}"></h:inputText>
+					Id: <h:inputText value="#{indexBean.actor_id_filter}"></h:inputText>
+
+		<h:commandButton value="Filtrar" action="index.xhtml"></h:commandButton>
+	</h:form>
+	<p>Valor de nombre: #{indexBean.first_name_filter}</p>
+	<p>Valor de apellido: #{indexBean.last_name_filter}</p>
+
 	<a id="button" onclick="toggleTable();" href="#">Show/Hide</a>
 	<h:dataTable value="#{indexBean.actorList}" var="actor"
 		id="actorsTable">

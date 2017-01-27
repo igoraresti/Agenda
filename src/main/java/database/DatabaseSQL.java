@@ -9,17 +9,16 @@ import java.util.List;
 
 import modelo.Actor;
 
-public class DatabaseSQL implements DatabaseOperation{
+public class DatabaseSQL implements DatabaseOperation {
 
-private List<Actor> listaActores = new ArrayList<Actor>();
-private MySQLConexion msc;
-	
-	public DatabaseSQL(){
+	private MySQLConexion msc;
+
+	public DatabaseSQL() {
 		msc = new MySQLConexion();
 	}
 
 	public void addActor(Actor contact) {
-		Connection con=msc.getConexion();
+		Connection con = msc.getConexion();
 		// create a Statement from the connection
 		Statement statement;
 		try {
@@ -31,41 +30,58 @@ private MySQLConexion msc;
 		}
 
 		// insert the data
-		
-		
-		
+
 	}
 
-	public void deleteActor(int contactPosition){
-		
+	public void deleteActor(int contactPosition) {
+
 	}
 
-	public Actor getActor(int contactPosition) {
-	
-		 
-		 return null;
-		 
-	}
+	public List<Actor> getAllActors(String last_name, String first_name) {
+		List<Actor> listaActores = new ArrayList<Actor>();
+		Connection con = msc.getConexion();
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Actor Where last_name like '" + last_name
+					+ "%' and first_name like '%" + first_name + "%'");
 
-	public List<Actor> getAllActors() {
-		
-		Connection con=msc.getConexion();
-		// create a Statement from the connection
-		
-		
-		 try {
-			Statement stmt= con.createStatement();
-			ResultSet rs= stmt.executeQuery("SELECT * FROM Actor");
-			
-			while (rs.next()){
-				Actor contact=new Actor(rs.getString("first_name"),rs.getString("last_name"));
+			while (rs.next()) {
+				Actor contact = new Actor(rs.getString("first_name"), rs.getString("last_name"));
 				listaActores.add(contact);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 return listaActores;
-		
+		return listaActores;
+
+	}
+	
+	public Actor getActorById(String actor_id){
+		List<Actor> listaActores = new ArrayList<Actor>();
+		Connection con = msc.getConexion();
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Actor WHERE actor_id like "+actor_id);
+
+			while (rs.next()) {
+				Actor contact = new Actor(rs.getString("first_name"), rs.getString("last_name"));
+				listaActores.add(contact);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listaActores.get(0);
+	}
+
+	public List<Actor> getAllActors() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Actor getActor(int actorPosition) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
