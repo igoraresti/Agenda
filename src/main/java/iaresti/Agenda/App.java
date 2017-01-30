@@ -36,7 +36,7 @@ public class App
 				System.out.println("Nombre: "+actor.getFirstName()+" Apellido: "+actor.getLastName());
 			break;
 		case 4:
-			for(Actor person: database.getAllActors())
+			for(Actor person: database.getAllActors("",""))
 				System.out.println("Nombre: "+person.getFirstName()+" Apellido: "+person.getLastName());
 			break;
 		default:
