@@ -46,7 +46,8 @@ public class Actor implements Serializable {
 		this.filmActors = filmActors;
 	}
 	
-	public Actor(String firstName, String lastName) {
+	public Actor(int actorId, String firstName, String lastName) {
+		this.actorId = actorId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}

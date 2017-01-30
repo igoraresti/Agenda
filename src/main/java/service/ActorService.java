@@ -6,7 +6,7 @@ import database.DatabaseSQL;
 import modelo.Actor;
 
 public class ActorService {
-	private DatabaseSQL database = new DatabaseSQL();
+	private DatabaseSQL database = DatabaseSQL.getInstance();
 	
 	public List<Actor> getAllActors(String last_name, String first_name){
 		return database.getAllActors(last_name.toUpperCase(), first_name.toUpperCase());

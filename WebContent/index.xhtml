@@ -44,6 +44,11 @@
 	<a id="button" onclick="toggleTable();" href="#">Show/Hide</a>
 	<h:dataTable value="#{indexBean.actorList}" var="actor"
 		id="actorsTable">
+		
+		<h:column>
+			<f:facet name="header">Id</f:facet>
+		#{actor.actorId}
+	</h:column>
 
 		<h:column>
 			<f:facet name="header">Nombre</f:facet>

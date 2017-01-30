@@ -17,12 +17,9 @@ public class MySQLConexion {
 
 	public MySQLConexion() {
 
-		System.out.println("-------- MySQL JDBC Connection ------------");
-
 		try {
 			Class.forName(driver);
 		} catch (ClassNotFoundException e) {
-			System.out.println("Where is your MySQL JDBC Driver?");
 			e.printStackTrace();
 			return;
 		}
@@ -33,12 +30,6 @@ public class MySQLConexion {
 
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(null, ex);
-		}
-		
-		if (con != null) {
-			System.out.println("You made it, take control your database now!");
-		} else {
-			System.out.println("Failed to make connection!");
 		}
 
 	}
