@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Entity
 @NamedQuery(name="Actor.findAll", query="SELECT a FROM Actor a")
-public class Actor implements Serializable {
+public class Actor implements Serializable, Comparable<Actor>  {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -111,6 +111,11 @@ public class Actor implements Serializable {
 		filmActor.setActor(null);
 
 		return filmActor;
+	}
+	
+	@Override
+	public int compareTo(Actor otherActor) {
+	        return this.getActorId()-otherActor.getActorId();
 	}
 
 }
