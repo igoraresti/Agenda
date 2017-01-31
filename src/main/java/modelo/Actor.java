@@ -35,8 +35,6 @@ public class Actor implements Serializable {
 	@OneToMany(mappedBy="actor")
 	private List<FilmActor> filmActors;
 	
-	
-
 	public Actor(int actorId, String firstName, String lastName,
 			Timestamp lastUpdate, List<FilmActor> filmActors) {
 		this.actorId = actorId;
@@ -48,6 +46,12 @@ public class Actor implements Serializable {
 	
 	public Actor(int actorId, String firstName, String lastName) {
 		this.actorId = actorId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+	
+	
+	public Actor(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}

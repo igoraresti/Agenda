@@ -107,6 +107,7 @@ public class DatabaseSQL implements DatabaseOperation {
 	public void deleteActor(String actorId) {
 		// TODO Auto-generated method stub
 		
+		
 	}
 
 	public Actor getActor(String actorId) {
