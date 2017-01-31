@@ -5,38 +5,37 @@ import java.util.List;
 import java.util.ListIterator;
 
 import modelo.Actor;
-import database.Database;
 import database.DatabaseSQL;
 
 
 public class App
 {
-	private static DatabaseSQL database = new DatabaseSQL();
+	private static DatabaseSQL database = DatabaseSQL.getInstance();
 	
 	private static void menu(int option){
-		int actorPosition;
+		String actor_id;
 		switch (option) {
 		case 1:
 			System.out.println("Intorduce nombre: ");
 			String nombre = Keyboard.readString();
 			System.out.println("Intorduce apellido: ");
 			String apellido = Keyboard.readString();
-			database.addActor(new Actor(nombre, apellido));
+			database.addActor(new Actor(1,nombre, apellido));
 			break;
 		case 2:
 			System.out.println("Intorduce posicion a borrar: ");
-			actorPosition = Keyboard.readInt();
-			database.deleteActor(actorPosition);
+			actor_id = Keyboard.readString();
+			database.deleteActor(actor_id);
 			break;
 		case 3:
 			System.out.println("Intorduce posicion a mostrar: ");
-			actorPosition = Keyboard.readInt();
-			Actor actor = database.getActor(actorPosition);
+			actor_id = Keyboard.readString();
+			Actor actor = database.getActor(actor_id);
 			if(actor != null)
 				System.out.println("Nombre: "+actor.getFirstName()+" Apellido: "+actor.getLastName());
 			break;
 		case 4:
-			for(Actor person: database.getAllActors())
+			for(Actor person: database.getAllActors("",""))
 				System.out.println("Nombre: "+person.getFirstName()+" Apellido: "+person.getLastName());
 			break;
 		default:

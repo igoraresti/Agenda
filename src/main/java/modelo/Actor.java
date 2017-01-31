@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Entity
 @NamedQuery(name="Actor.findAll", query="SELECT a FROM Actor a")
-public class Actor implements Serializable {
+public class Actor implements Serializable, Comparable<Actor>  {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -35,8 +35,6 @@ public class Actor implements Serializable {
 	@OneToMany(mappedBy="actor")
 	private List<FilmActor> filmActors;
 	
-	
-
 	public Actor(int actorId, String firstName, String lastName,
 			Timestamp lastUpdate, List<FilmActor> filmActors) {
 		this.actorId = actorId;
@@ -45,6 +43,13 @@ public class Actor implements Serializable {
 		this.lastUpdate = lastUpdate;
 		this.filmActors = filmActors;
 	}
+	
+	public Actor(int actorId, String firstName, String lastName) {
+		this.actorId = actorId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+	
 	
 	public Actor(String firstName, String lastName) {
 		this.firstName = firstName;
@@ -106,6 +111,11 @@ public class Actor implements Serializable {
 		filmActor.setActor(null);
 
 		return filmActor;
+	}
+	
+	@Override
+	public int compareTo(Actor otherActor) {
+	        return this.getActorId()-otherActor.getActorId();
 	}
 
 }
