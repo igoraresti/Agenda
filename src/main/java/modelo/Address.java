@@ -29,8 +29,6 @@ public class Address implements Serializable {
 	@Column(name="last_update")
 	private Timestamp lastUpdate;
 
-	private Object location;
-
 	private String phone;
 
 	@Column(name="postal_code")
@@ -96,13 +94,6 @@ public class Address implements Serializable {
 		this.lastUpdate = lastUpdate;
 	}
 
-	public Object getLocation() {
-		return this.location;
-	}
-
-	public void setLocation(Object location) {
-		this.location = location;
-	}
 
 	public String getPhone() {
 		return this.phone;

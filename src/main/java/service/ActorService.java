@@ -22,12 +22,12 @@ public class ActorService {
 		Collections.sort(listaActorById);
 		return listaActorById;
 	}
-	
-	
 
 	public Actor getActorByNameLastName(String last_name, String first_name) {
-		return database.getAllActors(last_name.toUpperCase(),
-				first_name.toUpperCase()).get(0);
+		if(database.getAllActors(last_name.toUpperCase(),first_name.toUpperCase()).size()!=0){
+			return database.getAllActors(last_name.toUpperCase(),first_name.toUpperCase()).get(0);
+		}
+		return null;
 	}
 
 	public Actor getActorById(String actor_id) {
@@ -35,15 +35,18 @@ public class ActorService {
 	}
 
 	public void createActor(Actor actor) {
-		EntityManagerFactory emfactory = Persistence
-				.createEntityManagerFactory("Eclipselink_JPA");
-		EntityManager entitymanager = emfactory.createEntityManager();
-		entitymanager.getTransaction().begin();
-
-		entitymanager.persist(actor);
-		entitymanager.getTransaction().commit();
-
-		entitymanager.close();
-		emfactory.close();
+		actor.setFirstName(actor.getFirstName().toUpperCase());
+		actor.setLastName(actor.getLastName().toUpperCase());
+		database.addActor(actor);
+	}
+	
+	public void updateActor(Actor actor) {
+		actor.setFirstName(actor.getFirstName().toUpperCase());
+		actor.setLastName(actor.getLastName().toUpperCase());
+		database.updateActor(actor);
+	}
+	
+	public void deleteActor(String actorId){
+		database.deleteActor(actorId);
 	}
 }

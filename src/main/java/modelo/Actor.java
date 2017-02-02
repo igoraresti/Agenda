@@ -48,12 +48,14 @@ public class Actor implements Serializable, Comparable<Actor>  {
 		this.actorId = actorId;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.lastUpdate = new Timestamp(1000);
 	}
 	
 	
 	public Actor(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.lastUpdate = new Timestamp(1000);
 	}
 
 	public Actor() {
