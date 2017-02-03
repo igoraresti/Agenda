@@ -3,6 +3,7 @@ package database;
 import java.util.List;
 
 import modelo.Actor;
+import modelo.Film;
 
 public interface DatabaseOperation {
 	
@@ -16,6 +17,9 @@ public interface DatabaseOperation {
 	public Actor getActorById(String actor_id);
 	
 	// Table Film operations
-	
-
+	public void addFilm(Film film);
+	public void updateFilm(Film film);
+	public void deleteFilm(String filmId);
+	public Actor getFilm(String filmId);
+	public List<Film> getAllFilms();
 }

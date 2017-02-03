@@ -16,6 +16,7 @@ import javax.persistence.Persistence;
 
 import service.ReadWriteMap;
 import modelo.Actor;
+import modelo.Film;
 
 public class DatabaseSQL implements DatabaseOperation {
 
@@ -149,6 +150,36 @@ public class DatabaseSQL implements DatabaseOperation {
 		entitymanager.getTransaction().commit();
 		entitymanager.close();
 		emfactory.close();
+	}
+
+	@Override
+	public void addFilm(Film film) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateFilm(Film film) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteFilm(String filmId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Actor getFilm(String filmId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Film> getAllFilms() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
