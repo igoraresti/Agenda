@@ -1,0 +1,42 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	background-color: #e1f0ff;
+	width: 100%;
+	
+	
+}
+
+#actorsTable{
+		
+	border-color: black;
+	border-radius: 34;
+	border-spacing: 0;	
+}
+
+#button_table{
+	position: absolute;
+	width: 20%;
+}
+
+
+#filtro{
+	position:relative;
+	top:10%;
+	left:30%;
+	width: 12%;
+}
+
+.areaTexto{
+	margin-top: 1%;
+}
+
+#filtro boton{
+		left:50%;
+}
+
+th {
+	background-color: red;
+	color:white;
+	
+}

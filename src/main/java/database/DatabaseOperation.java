@@ -8,6 +8,7 @@ public interface DatabaseOperation {
 	
 	// Table Actor operations
 	public void addActor(Actor actor);
+	public void updateActor(Actor actor);
 	public void deleteActor(String actorId);
 	public Actor getActor(String actorId);
 	public List<Actor> getAllActors();

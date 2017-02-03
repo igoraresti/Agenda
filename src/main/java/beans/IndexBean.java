@@ -34,7 +34,7 @@ public class IndexBean implements Serializable {
 		if(actor_id_filter.length()>0)
 			listaActores.add(actorService.getActorById(actor_id_filter));
 		else
-			listaActores = actorService.getAllActors(last_name_filter,first_name_filter);
+			listaActores = actorService.getAllActors(first_name_filter,last_name_filter);
 		return listaActores;
 	}
 
