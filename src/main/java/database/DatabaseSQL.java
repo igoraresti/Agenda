@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,16 +59,17 @@ public class DatabaseSQL implements DatabaseOperation {
 
 			while (rs.next()) {
 				Actor actor = new Actor(rs.getInt("actor_id"),rs.getString("first_name"), rs.getString("last_name"));
-				System.out.println("Mete actor:"+actor.getActorId());
 				rwActorLocker.put(Integer.toString(actor.getActorId()), actor);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return new ArrayList<Actor>(rwActorLocker.getAll());
 
 	}
+	
 	
 	public Actor getActorById(String actor_id){
 		Connection con = msc.getConexion();
