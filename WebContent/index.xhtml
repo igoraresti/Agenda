@@ -16,8 +16,6 @@
 
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-<script type="text/javascript" src="assets/js/jquery.tablesorter.js"></script>
-<script type="text/javascript" src="assets/js/orderTable.js"></script>
 
 <SCRIPT type="text/javascript">
 	function toggleTable() {
@@ -25,6 +23,9 @@
 		lTable.style.display = (lTable.style.display == "table") ? "none"
 				: "table";
 	}
+	TSort_Data = new Array ('actorsTable', 'i', 's', 's');
+	tsRegister();
+	
 </SCRIPT>
 </head>
 <body>
@@ -48,7 +49,7 @@
 	<a id="button" onclick="toggleTable();" href="#">Show/Hide</a>
 	<h:dataTable value="#{indexBean.actorList}" var="actor"
 		id="actorsTable">
-		
+
 		<h:column>
 			<f:facet name="header">Id</f:facet>
 		#{actor.actorId}
@@ -67,12 +68,7 @@
 	</h:dataTable>
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.poptrox.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/main.js"></script>
+	<script src="assets/js/gs_sortable.js"></script>
 
 </body>
 </html>
