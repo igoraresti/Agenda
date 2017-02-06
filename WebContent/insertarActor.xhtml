@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+		<h:form id="filtro">
+					Nombre: <h:inputText class="areaTexto" value="#{indexBean.first_name_filter}"></h:inputText>
+					Apellido: <h:inputText class="areaTexto" value="#{indexBean.last_name_filter}"></h:inputText>
+					Id: <h:inputText class="areaTexto" value="#{indexBean.actor_id_filter}"></h:inputText>
+
+				<h:commandButton class="boton" value="insertar" action="buscar.xhtml"></h:commandButton>
+		</h:form>
+</body>
+</html>

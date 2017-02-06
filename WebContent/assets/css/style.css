@@ -36,6 +36,10 @@ body{
 		left:50%;
 }
 
+#selector{
+	width: 10%;
+}
+
 th {
 	background-color: red;
 	color:white;

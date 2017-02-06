@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<title>Index Page</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+
+<link rel="stylesheet" href="assets/css/style.css" />
+
+
+<SCRIPT type="text/javascript">
+	function toggleTable() {
+		var lTable = document.getElementById("actorsTable");
+		lTable.style.display = (lTable.style.display == "table") ? "none"
+				: "table";
+	}
+	TSort_Data = new Array ('actorsTable', 'i', 's', 's');
+	tsRegister();
+</SCRIPT>
+</head>
+<body>
+
+	<!-- Wrapper -->
+	<div id="wrapper"></div>
+
+	<!-- Header -->
+	<header id="header"> </header>
+
+	
+	
+	<div id="button_table">
+		<a id="button" onclick="toggleTable();" href="#">Show/Hide</a>
+		<h:dataTable value="#{indexBean.actorList}" var="actor"
+			id="actorsTable">
+			
+		<h:column>
+				<f:facet name="header">Id</f:facet>
+			#{actor.actorId}
+		</h:column>
+	
+		<h:column>
+				<f:facet name="header">Nombre</f:facet>
+			#{actor.firstName}
+		</h:column>
+	
+		<h:column>
+				<f:facet name="header">Apellido</f:facet>
+			#{actor.lastName}
+		</h:column>
+	
+		</h:dataTable>
+	</div>
+	
+	<h:form id="filtro">
+					Nombre: <h:inputText class="areaTexto" value="#{indexBean.first_name_filter}"></h:inputText>
+					Apellido: <h:inputText class="areaTexto" value="#{indexBean.last_name_filter}"></h:inputText>
+					Id: <h:inputText class="areaTexto" value="#{indexBean.actor_id_filter}"></h:inputText>
+
+		<h:commandButton class="boton" value="Filtrar" action="buscar.xhtml"></h:commandButton>
+	</h:form>
+	
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="assets/js/gs_sortable.js"></script>
+	
+
+</body>
+</html>
