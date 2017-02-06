@@ -29,9 +29,10 @@ body{
 
 .areaTexto{
 	margin-top: 1%;
+	margin-bottom: 1%;
 }
 
-#filtro boton{
+#filtro:boton{
 		left:50%;
 }
 
